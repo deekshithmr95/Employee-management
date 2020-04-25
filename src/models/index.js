@@ -23,6 +23,8 @@ db.sequelize = sequelize;
 db.emp_main = require('./employee.models.js')(sequelize, Sequqlize);
 db.roles_main = require('./roles.models.js')(sequelize, Sequqlize);
 db.emp_roles = require('./emp_roles.models')(sequelize, Sequqlize);
+db.holiday_main = require('./holiday.models.js')(sequelize, Sequqlize);
+db.leave_main = require('./leave.models.js')(sequelize, Sequqlize);
 
 db.emp_main.belongsToMany(db.roles_main, {as:'Roles', through: {model: db.emp_roles, unique: false}, foreignKey:'emp_id'});
 db.roles_main.belongsToMany(db.emp_main, {as:'Uers', through: {model: db.emp_roles, unique: false}, foreignKey:'role_id'});
